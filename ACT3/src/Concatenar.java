@@ -1,7 +1,6 @@
 package ACT3;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -12,11 +11,15 @@ public class Concatenar {
 		
 		List<String> filtradas = palabras.stream().filter((palabra)-> palabra.length() > n).collect(Collectors.toList());
 						
-		Iterator<String> iterador = filtradas.iterator();
+		/*con iterador
+		 * Iterator<String> iterador = filtradas.iterator();
 		String resultado = iterador.next();
 		while(iterador.hasNext()) {
 			resultado += ", " + iterador.next();
-		}	    
+		}	*/
+		
+		//aplanando la colección
+		String resultado = filtradas.stream().collect(Collectors.joining(", "));
 		return resultado;		
 	}
 	
